@@ -1,4 +1,6 @@
- public class MyFirstProgram {
+package ala.pft.sandbox;
+
+public class MyFirstProgram {
 	 public static void main(String[] args) {
 
 		 System.out.println("Privet, CheBurr!");
@@ -12,7 +14,7 @@
 		 System.out.println("Distance between two points: (" + p1.x + ", " + p1.y + ") and (" + p2.x + ", " + p2.y + ") = " + p1.distance(p2));
 	 }
 /*
-	 public static double distance(Point p1, Point p2) {
+	 public static double distance(ala.pft.sandbox.Point p1, ala.pft.sandbox.Point p2) {
 		 double l = (p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y);
 		 return Math.sqrt(l);
 	 }*/
