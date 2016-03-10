@@ -1,4 +1,4 @@
-package ala.pft.addressbook;
+package ala.pft.addressbook.model;
 
 public class ContactData {
     private final String firstname;
