@@ -20,11 +20,24 @@ public class ContactHelper extends HelperBase {
     public void fillContactForm(ContactData contactData) {
         type(By.name("firstname"),contactData.getFirstname());
         type(By.name("lastname"),contactData.getLastname());
+        type(By.name("address"),contactData.getAddress());
         type(By.name("home"), contactData.getHomephone());
         type(By.name("email"),contactData.getEmail());
     }
 
     public void initContactCreation() {
         click(By.linkText("add new"));
+    }
+
+    public void selectContact() {
+        click(By.id("1"));
+    }
+
+    public void submitContactModification() {
+        click(By.name("update"));
+    }
+
+    public void initContactModification() {
+        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
     }
 }
