@@ -30,7 +30,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void selectContact() {
-        click(By.id("1"));
+        click(By.id("2"));
     }
 
     public void submitContactModification() {
@@ -39,5 +39,13 @@ public class ContactHelper extends HelperBase {
 
     public void initContactModification() {
         click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+    }
+
+    public void deleteContact() {
+        click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+    }
+
+    public void closeAlertForDeletion() {
+        wd.switchTo().alert().accept();
     }
 }
