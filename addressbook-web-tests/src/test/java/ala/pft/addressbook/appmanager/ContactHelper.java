@@ -3,7 +3,6 @@ package ala.pft.addressbook.appmanager;
 import ala.pft.addressbook.model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
  * Created by Lida on 3/9/2016.
@@ -48,5 +47,15 @@ public class ContactHelper extends HelperBase {
 
     public void closeAlertForDeletion() {
         wd.switchTo().alert().accept();
+    }
+
+    public void createContact(ContactData contact) {
+        initContactCreation();
+        fillContactForm(contact);
+        submitContactCreation();
+    }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.name("selected[]"));
     }
 }
