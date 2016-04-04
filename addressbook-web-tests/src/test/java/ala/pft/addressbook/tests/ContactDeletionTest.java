@@ -15,6 +15,7 @@ public class ContactDeletionTest extends TestBase {
             app.getContactHelper().createContact(new ContactData
                     ("test1", "test2", "testAddress", "1234567890", "test1.test2@gmail.com"));
         }
+        app.getNavigationHelper().goToHomePage();
         app.getContactHelper().selectContact();
         app.getContactHelper().deleteContact();
         app.getContactHelper().closeAlertForDeletion();
