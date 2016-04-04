@@ -1,6 +1,7 @@
 package ala.pft.addressbook.tests;
 
 import ala.pft.addressbook.model.ContactData;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
@@ -16,8 +17,12 @@ public class ContactDeletionTest extends TestBase {
                     ("test1", "test2", "testAddress", "1234567890", "test1.test2@gmail.com"));
         }
         app.getNavigationHelper().goToHomePage();
+        int before = app.getContactHelper().getContactCount();
         app.getContactHelper().selectContact();
         app.getContactHelper().deleteContact();
         app.getContactHelper().closeAlertForDeletion();
+        app.getNavigationHelper().goToHomePage();
+        int after = app.getContactHelper().getContactCount();
+        Assert.assertEquals(after, before - 1);
     }
 }
