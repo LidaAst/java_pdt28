@@ -4,6 +4,8 @@ import ala.pft.addressbook.model.ContactData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 /**
  * Created by Lida on 3/13/2016.
  */
@@ -17,12 +19,12 @@ public class ContactDeletionTest extends TestBase {
                     ("test1", "test2", "testAddress", "1234567890", "test1.test2@gmail.com"));
         }
         app.getNavigationHelper().goToHomePage();
-        int before = app.getContactHelper().getContactCount();
-        app.getContactHelper().selectContact(before - 1);
+        List<ContactData> before = app.getContactHelper().getContactList();
+        app.getContactHelper().selectContact(before.size() - 1);
         app.getContactHelper().deleteContact();
         app.getContactHelper().closeAlertForDeletion();
         app.getNavigationHelper().goToHomePage();
-        int after = app.getContactHelper().getContactCount();
-        Assert.assertEquals(after, before - 1);
+        List<ContactData> after = app.getContactHelper().getContactList();
+        Assert.assertEquals(after.size(), before.size() - 1);
     }
 }

@@ -3,6 +3,10 @@ package ala.pft.addressbook.appmanager;
 import ala.pft.addressbook.model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Lida on 3/9/2016.
@@ -61,5 +65,18 @@ public class ContactHelper extends HelperBase {
 
     public int getContactCount() {
         return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public List<ContactData> getContactList() {
+        List<ContactData> contacts = new ArrayList<ContactData>();
+        List<WebElement> elements = wd.findElements(By.name("entry"));
+        for (WebElement element : elements){
+            List<WebElement> cells = element.findElements(By.tagName("td"));
+            WebElement cell1 = cells.get(1);
+            String lastName = cell1.getText();
+            ContactData contact = new ContactData(null, lastName, null, null, null);
+            contacts.add(contact);
+        }
+        return contacts;
     }
 }
